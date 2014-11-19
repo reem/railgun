@@ -1,0 +1,27 @@
+[package]
+
+name = "railgun"
+version = "0.0.1"
+authors = ["Jonathan Reem <jonathan.reem@gmail.com>"]
+
+[dependencies.hyper]
+git = "https://github.com/hyperium/hyper.git"
+
+[dependencies.modifier]
+git = "https://github.com/reem/rust-modifier.git"
+
+[dependencies.typemap]
+git = "https://github.com/reem/rust-typemap.git"
+
+[dependencies.reduce]
+git = "https://github.com/reem/rust-reduce.git"
+
+[dependencies.plugin]
+git = "https://github.com/reem/rust-plugin.git"
+
+[dependencies.error]
+git = "https://github.com/reem/rust-error.git"
+
+[dependencies.url]
+git = "https://github.com/servo/rust-url.git"
+
