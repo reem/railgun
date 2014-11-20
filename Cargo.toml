@@ -3,6 +3,9 @@
 name = "railgun"
 version = "0.0.1"
 authors = ["Jonathan Reem <jonathan.reem@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+keywords = ["web", "railgun", "hyper"]
 
 [dependencies.hyper]
 git = "https://github.com/hyperium/hyper.git"
@@ -18,9 +21,6 @@ git = "https://github.com/reem/rust-reduce.git"
 
 [dependencies.plugin]
 git = "https://github.com/reem/rust-plugin.git"
-
-[dependencies.error]
-git = "https://github.com/reem/rust-error.git"
 
 [dependencies.url]
 git = "https://github.com/servo/rust-url.git"
