@@ -6,6 +6,7 @@ authors = ["Jonathan Reem <jonathan.reem@gmail.com>"]
 readme = "README.md"
 license = "MIT"
 keywords = ["web", "railgun", "hyper"]
+build = "generate.rs"
 
 [dependencies.hyper]
 git = "https://github.com/hyperium/hyper.git"
