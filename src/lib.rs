@@ -9,37 +9,30 @@ extern crate typemap;
 extern crate plugin;
 extern crate url;
 
-use request::Request;
-use response::Response;
+pub use request::Request;
+pub use response::Response;
 
 pub mod request;
 pub mod response;
 
-pub trait Handler {
-    fn handle(&self, Request, Response);
-}
-
-pub struct Fun<F: Fn(Request, Response)>(F);
-
-impl<F> Handler for Fun<F>
-where F: Fn(Request, Response) {
-    fn handle(&self, req: Request, res: Response) {
-        self.0.call((req, res))
-    }
-}
+mod impls;
 
 /// A Railgun Server.
 ///
 /// Handles requests.
 pub struct Railgun<F>
-where F: Handler {
+where F: Fn(Request, Response) {
     handler: F
 }
 
 impl<F> Railgun<F>
-where F: Handler {
+where F: Fn(Request, Response) {
     pub fn new(handler: F) -> Railgun<F> {
         Railgun { handler: handler }
+    }
+
+    pub fn handler(&self) -> &F {
+        &self.handler
     }
 }
 

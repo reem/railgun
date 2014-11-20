@@ -16,9 +16,6 @@ git = "https://github.com/reem/rust-modifier.git"
 [dependencies.typemap]
 git = "https://github.com/reem/rust-typemap.git"
 
-[dependencies.reduce]
-git = "https://github.com/reem/rust-reduce.git"
-
 [dependencies.plugin]
 git = "https://github.com/reem/rust-plugin.git"
 
