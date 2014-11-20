@@ -3,6 +3,13 @@ use typemap::TypeMap;
 
 pub struct Request {
     pub extensions: TypeMap,
-    hyper_request: server::Request
+}
+
+impl Request {
+    pub fn lift(_: server::Request) -> Request {
+        Request {
+            extensions: TypeMap::new()
+        }
+    }
 }
 
