@@ -12,6 +12,11 @@ extern crate url;
 pub use request::Request;
 pub use response::Response;
 
+pub use hyper::status::StatusCode as Status;
+pub use hyper::method::Method as Method;
+pub use hyper::header::Headers;
+pub use hyper::uri::RequestUri as RequestUri;
+
 use hyper::{HttpResult, net, server};
 use std::io::net::ip::ToSocketAddr;
 use std::fmt::Show;
