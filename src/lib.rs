@@ -25,12 +25,12 @@ mod impls;
 ///
 /// Handles requests.
 pub struct Railgun<F>
-where F: Fn(Request, Response) + Send + Sync {
+where F: Fn(Request, Response<net::Fresh>) + Send + Sync {
     handler: F
 }
 
 impl<F> Railgun<F>
-where F: Fn(Request, Response) + Send + Sync {
+where F: Fn(Request, Response<net::Fresh>) + Send + Sync {
     pub fn new(handler: F) -> Railgun<F> {
         Railgun { handler: handler }
     }
@@ -46,9 +46,9 @@ where F: Fn(Request, Response) + Send + Sync {
     }
 }
 
-struct F<Fu: Fn(Request, Response) + Send + Sync>(Fu);
+struct F<Fu: Fn(Request, Response<net::Fresh>) + Send + Sync>(Fu);
 
-impl<Fu: Fn(Request, Response) + Send + Sync> server::Handler for F<Fu> {
+impl<Fu: Fn(Request, Response<net::Fresh>) + Send + Sync> server::Handler for F<Fu> {
     fn handle(&self, req: server::Request, res: server::Response<net::Fresh>) {
         let req = Request::lift(req);
         let res = Response::lift(res);

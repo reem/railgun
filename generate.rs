@@ -11,9 +11,9 @@ fn main() {
 fn generate(mut file: File, limit: uint) {
     for i in range(1, limit) {
         (write!(file,
-"impl<{fs}, {ts}> Fn(Request, Response) -> T{n} for ({fs})
+"impl<{fs}, {ts}> Fn(Request, Response<Fresh>) -> T{n} for ({fs})
 where {bounds} {{
-    extern \"rust-call\" fn call(&self, conn: (Request, Response)) -> T{n} {{
+    extern \"rust-call\" fn call(&self, conn: (Request, Response<Fresh>)) -> T{n} {{
         let a = self.0.call(conn);
         {applications}
         return a;
@@ -33,7 +33,7 @@ fn types(prefix: &str, limit: uint) -> Vec<String> {
 }
 
 fn bounds(limit: uint) -> Vec<String> {
-    let mut out = vec!["F1: Fn(Request, Response) -> T2".into_string()];
+    let mut out = vec!["F1: Fn(Request, Response<Fresh>) -> T2".into_string()];
     out.extend(range(2, limit + 1)
         .map(|i| format!("F{}: Fn(T{}) -> T{}", i, i - 1, i)));
     out

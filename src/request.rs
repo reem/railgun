@@ -1,14 +1,16 @@
 use hyper::server;
 use typemap::TypeMap;
 
-pub struct Request {
+pub struct Request<'a> {
     pub extensions: TypeMap,
+    hyper_request: server::Request<'a>
 }
 
-impl Request {
-    pub fn lift(_: server::Request) -> Request {
+impl<'a> Request<'a> {
+    pub fn lift(req: server::Request<'a>) -> Request<'a> {
         Request {
-            extensions: TypeMap::new()
+            extensions: TypeMap::new(),
+            hyper_request: req
         }
     }
 }
