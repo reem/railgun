@@ -9,7 +9,7 @@ keywords = ["web", "railgun", "hyper"]
 build = "generate.rs"
 
 [dependencies.hyper]
-git = "https://github.com/hyperium/hyper.git"
+git = "https://github.com/reem/hyper.git"
 branch = "server-keep-alive"
 
 [dependencies.modifier]

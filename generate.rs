@@ -10,7 +10,7 @@ fn main() {
 
 fn generate(mut file: File, limit: uint) {
     for i in range(1, limit) {
-        (write!(file,
+        (write!(&mut file,
 "impl<{fs}, {ts}> Fn(Request, Response<Fresh>) -> T{n} for ({fs})
 where {bounds} {{
     extern \"rust-call\" fn call(&self, conn: (Request, Response<Fresh>)) -> T{n} {{
