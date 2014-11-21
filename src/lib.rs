@@ -21,10 +21,15 @@ use hyper::{HttpResult, net, server};
 use std::io::net::ip::ToSocketAddr;
 use std::fmt::Show;
 
+pub use error::RailgunError;
+
 pub mod request;
 pub mod response;
 
 mod impls;
+mod error;
+
+pub type RailgunResult<T> = Result<T, RailgunError>;
 
 /// A Railgun Server.
 ///
