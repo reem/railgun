@@ -1,5 +1,5 @@
 #![license = "MIT"]
-#![feature(unboxed_closures, tuple_indexing, default_type_params)]
+#![feature(unboxed_closures, tuple_indexing, default_type_params, phase)]
 
 //! Fast, safe middleware built on top of Hyper.
 
@@ -8,6 +8,9 @@ extern crate modifier;
 extern crate typemap;
 extern crate plugin;
 extern crate url;
+
+#[cfg(test)]
+#[phase(plugin)] extern crate stainless;
 
 pub use request::Request;
 pub use response::Response;

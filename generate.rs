@@ -33,14 +33,14 @@ fn types(prefix: &str, limit: uint) -> Vec<String> {
 }
 
 fn bounds(limit: uint) -> Vec<String> {
-    let mut out = vec!["F1: Fn(Request, Response<Fresh>) -> T2".into_string()];
+    let mut out = vec!["F1: Fn(Request, Response<Fresh>) -> T1".into_string()];
     out.extend(range(2, limit + 1)
         .map(|i| format!("F{}: Fn(T{}) -> T{}", i, i - 1, i)));
     out
 }
 
 fn applications(limit: uint, op: &str) -> Vec<String> {
-    range(2, limit + 1)
+    range(1, limit + 1)
         .map(|n| format!("let a = self.{}.{};", n, op))
         .collect()
 }
