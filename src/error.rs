@@ -3,6 +3,7 @@ use std::io;
 
 use {hyper};
 
+#[deriving(Show)]
 pub enum RailgunError {
     HyperError(hyper::HttpError),
     IoError(io::IoError)
