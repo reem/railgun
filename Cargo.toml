@@ -8,21 +8,13 @@ license = "MIT"
 keywords = ["web", "railgun", "hyper"]
 build = "generate.rs"
 
-[dependencies.hyper]
-git = "https://github.com/hyperium/hyper.git"
+[dependencies]
+hyper = "*"
+modifier = "*"
+typemap = "*"
+plugin = "*"
+url = "*"
 
-[dependencies.modifier]
-git = "https://github.com/reem/rust-modifier.git"
-
-[dependencies.typemap]
-git = "https://github.com/reem/rust-typemap.git"
-
-[dependencies.plugin]
-git = "https://github.com/reem/rust-plugin.git"
-
-[dependencies.url]
-git = "https://github.com/servo/rust-url.git"
-
-[dev-dependencies.stainless]
-git = "https://github.com/reem/stainless.git"
+[dev-dependencies]
+stainless = "*"
 
