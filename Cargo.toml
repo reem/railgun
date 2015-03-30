@@ -1,0 +1,19 @@
+[package]
+
+name = "railgun"
+version = "0.0.1"
+authors = ["Jonathan Reem <jonathan.reem@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+keywords = ["web", "railgun"]
+
+[dependencies]
+hyper = "*"
+modifier = "*"
+typemap = "*"
+plugin = "*"
+url = "*"
+
+[dev-dependencies]
+stainless = "*"
+
